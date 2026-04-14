@@ -5,7 +5,7 @@ This project implements a real-time audio spectrum analyzer in Python, designed 
 
 The goal of this project is to explore practical digital signal processing (DSP) concepts in a real-world audio pipeline, similar to tools used in audio engineering, embedded audio systems, and professional sound analysis workflows.
 
----
+
 
 ## System Architecture
 
@@ -20,7 +20,7 @@ Key processing stages:
 - Logarithmic frequency mapping for perceptual alignment
 - Real-time GUI rendering using PyQtGraph
 
----
+
 
 ## Features
 
@@ -42,7 +42,7 @@ Key processing stages:
 - Continuous real-time streaming
 - Stable multi-plot rendering architecture
 
----
+
 
 ## Hardware Setup
 
@@ -53,7 +53,7 @@ This project uses external audio acquisition hardware to ensure high-quality sam
 
 This setup allows analysis of real-world acoustic signals rather than synthetic inputs.
 
----
+
 
 ## Software Stack
 
@@ -64,7 +64,7 @@ This setup allows analysis of real-world acoustic signals rather than synthetic 
 - PyQtGraph (real-time visualization)
 - PyQt6 (GUI backend)
 
----
+
 
 ## Installation
 
@@ -81,7 +81,7 @@ Run the application:
 
 python fft.py  
 
----
+
 
 ## Testing & Validation
 
@@ -107,7 +107,7 @@ The system was evaluated using controlled and real-world audio inputs to verify 
 - Result: Stable operation over extended runtime (>30 minutes)
 - Outcome: No buffer underruns or visualization freezing observed
 
----
+
 
 ## Performance Considerations
 
@@ -116,7 +116,7 @@ The system was evaluated using controlled and real-world audio inputs to verify 
 - Optimized FFT pipeline for real-time visualization constraints
 - Log-frequency interpolation used for perceptual alignment
 
----
+
 
 ## Future Improvements
 
@@ -127,7 +127,7 @@ The system was evaluated using controlled and real-world audio inputs to verify 
 - Advanced DSP features (noise gating, EQ visualization)
 - Embedded deployment (Raspberry Pi / DSP hardware port)
 
----
+
 
 ## Engineering Relevance
 
@@ -138,10 +138,30 @@ This project demonstrates core concepts relevant to:
 - Embedded audio pipelines
 - Hardware-software integration
 
----
+
 
 ## Author
 
 Ethan Mercado  
 Electrical Engineering & Applied Physics, UC Irvine  
 Incoming M.S. Electrical Engineering, USC (Fall 2026)
+
+# Real-Time Audio Spectrum Analyzer
+
+## Overview
+This project implements a real-time audio spectrum analyzer using Python. It performs FFT-based signal processing on live microphone input and visualizes the frequency spectrum in both linear and dB scales.
+
+## Features
+- Real-time FFT processing
+- Logarithmic frequency axis (20 Hz – 12 kHz)
+- dB magnitude scaling
+- Peak hold tracking
+- Multi-plot visualization
+
+## Hardware
+- Focusrite Scarlett 2i2
+- Audio-Technica AT2020
+
+## How to Run
+pip install -r requirements.txt
+python fft.py
