@@ -4,25 +4,25 @@ import pyqtgraph as pg
 from pyqtgraph.Qt import QtWidgets
 from scipy.fft import fft
 
-# ================= SETTINGS =================
+# SETTINGS 
 SAMPLE_RATE = 44100
 CHUNK = 2048
 MAX_FREQ = 12000
 
 ALPHA = 0.2
 
-# ================= POSITIVE FREQUENCY AXIS =================
+# POSITIVE FREQUENCY AXIS 
 freqs = np.linspace(0, SAMPLE_RATE / 2, CHUNK // 2)
 
 # log frequency axis (must be increasing!)
 log_freqs = np.logspace(np.log10(20), np.log10(MAX_FREQ), num=400)
 
-# ================= STATE =================
+# STATE 
 prev_linear = np.zeros(len(log_freqs))
 prev_db = np.zeros(len(log_freqs))
 peak_db = np.full(len(log_freqs), -120.0)
 
-# ================= GUI =================
+# GUI 
 app = QtWidgets.QApplication([])
 
 win = pg.GraphicsLayoutWidget(title="Real-Time Audio Spectrum Analyzer (Fixed Log)")
@@ -48,7 +48,7 @@ plot3.setXRange(20, MAX_FREQ)
 plot3.setYRange(-100, 0)
 plot3.setLogMode(x=True)
 
-# ================= AUDIO CALLBACK =================
+# AUDIO CALLBACK 
 def audio_callback(indata, frames, time, status):
     global prev_linear, prev_db, peak_db
 
@@ -81,7 +81,7 @@ def audio_callback(indata, frames, time, status):
     curve2.setData(log_freqs, db_smooth)
     curve3.setData(log_freqs, peak_db)
 
-# ================= AUDIO STREAM =================
+# AUDIO STREAM 
 stream = sd.InputStream(
     samplerate=SAMPLE_RATE,
     blocksize=CHUNK,
@@ -92,6 +92,6 @@ stream = sd.InputStream(
 
 stream.start()
 
-# ================= RUN =================
+# RUN 
 win.show()
 QtWidgets.QApplication.instance().exec()
